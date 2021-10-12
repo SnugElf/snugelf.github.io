@@ -268,3 +268,11 @@ footer>a {
     background-image: url(/img/laptop-house-solid.svg);
     background-size: 30px;
 }
+
+.workul{
+    list-style: decimal;
+    position: absolute;
+    margin-top: 40px;
+    width: 355px;
+    font-size: 14px;
+}
