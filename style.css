@@ -165,10 +165,9 @@ p {
 
 .edu {
     height: 180px;
-    padding-left: 20px;
-    padding-top: 20px;
-    width: 333px;
-    float: left;
+    width: 780px;
+    display: inline-flex;
+    align-items: flex-start;
 }
 
 .education>h3 {
@@ -200,7 +199,7 @@ p {
     display: inline-block;
     width: 1em;
     margin-left: -1em;
-    font-size: 30px;
+    font-size: 34px;
     vertical-align: sub;
     line-height: 38px;
 }
@@ -260,7 +259,12 @@ footer {
 footer>a {
     color: rgb(87, 87, 87);
 }
+
+.work {
+    display: inline-flex;
+}
+
 .work>h3 {
-    background-image: url(/img/flag-solid.svg);
-    margin-left: 8px;
+    background-image: url(/img/laptop-house-solid.svg);
+    background-size: 30px;
 }
