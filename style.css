@@ -273,9 +273,11 @@ footer>a {
 }
 
 .workul {
-    list-style: decimal;
+    list-style: none;
     position: absolute;
     margin-top: 40px;
-    width: 355px;
+    width: 360px;
     font-size: 14px;
+    margin-left: -20px;
+    line-height: 1.5em;
 }
