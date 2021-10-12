@@ -260,3 +260,7 @@ footer {
 footer>a {
     color: rgb(87, 87, 87);
 }
+.work>h3 {
+    background-image: url(/img/flag-solid.svg);
+    margin-left: 8px;
+}
