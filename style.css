@@ -37,6 +37,7 @@ header {
     width: 150px;
     height: 150px;
     float: left;
+    object-fit: cover;
 }
 
 .name {
