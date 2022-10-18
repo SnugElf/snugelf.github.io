@@ -1,3 +1,7 @@
+:root{
+    --blue: rgb(0 115 222);
+}
+
 * {
     margin: 0 auto;
     padding: 0 auto;
@@ -27,7 +31,7 @@ header {
 
 .photo {
     border-radius: 50%;
-    border-color: rgb(32, 147, 255);
+    border-color: var(--blue);
     border-style: solid;
     border-width: 5px;
     width: 150px;
@@ -39,6 +43,7 @@ header {
     margin-left: 20px;
     display: inline-block;
     font-size: 30px;
+    text-align: center;
 }
 
 .short {
@@ -48,7 +53,7 @@ header {
     border-radius: 15px;
     padding: 7px;
     color: white;
-    background-color: rgb(32, 147, 255);
+    background-color: var(--blue);
     font-size: 13px;
 }
 
@@ -96,7 +101,7 @@ header {
 }
 
 h2 {
-    color: rgb(32, 147, 255);
+    color: var(--blue);
     font-size: 35px;
     text-align: center;
 }
@@ -163,7 +168,7 @@ p {
 
 .bio li {
     list-style: none;
-    color: rgb(32, 147, 255);
+    color: var(--blue);
     font-weight: bold;
 }
 
@@ -199,7 +204,7 @@ p {
 
 .edusa li::before {
     content: "•";
-    color: rgb(32, 147, 255);
+    color: var(--blue);
     display: inline-block;
     width: 1em;
     margin-left: -1em;
@@ -213,6 +218,7 @@ p {
     background-color: rgb(233, 233, 233);
     height: 210px;
     padding: 20px;
+    box-shadow: inset 0px 0px 10px 0px #969696;
 }
 
 .skills>h3:first-child {
@@ -232,7 +238,7 @@ p {
 .english {
     margin-top: 20px;
     margin-left: 20px;
-    border: 2px solid rgb(32, 147, 255);
+    border: 2px solid var(--blue);
     color: white;
     border-radius: 50px;
     padding-left: 20px;
@@ -242,11 +248,11 @@ p {
 
 .latvian,
 .russian {
-    background: linear-gradient(to right, rgb(32, 147, 255) 95%, white 50%);
+    background: linear-gradient(to right, var(--blue) 95%, white 50%);
 }
 
 .english {
-    background: linear-gradient(to right, rgb(32, 147, 255) 35%, white 20%);
+    background: linear-gradient(to right, var(--blue) 50%, white 50%);
 }
 
 .hobbies {
