@@ -85,6 +85,7 @@ header {
     background-color: rgb(233, 233, 233);
     height: 315px;
     padding: 20px;
+    box-shadow: inset 0px 0px 10px 0px #969696;
 }
 
 .created {
