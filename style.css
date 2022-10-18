@@ -88,9 +88,10 @@ header {
 
 .about {
     background-color: rgb(233, 233, 233);
-    height: 315px;
+    min-height: 315px;
     padding: 20px;
     box-shadow: 0px 0px 10px 0px #969696;
+    overflow: hidden;
 }
 
 .created {
@@ -177,6 +178,7 @@ p {
     width: 780px;
     display: inline-flex;
     align-items: flex-start;
+    margin-top: 12px;
 }
 
 .education>h3 {
