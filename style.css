@@ -192,6 +192,7 @@ p {
     padding-left: 10px;
     float: left;
     font-size: 20px;
+    margin-top: 15px;
 }
 
 .edus>li {
@@ -203,10 +204,11 @@ p {
     list-style-type: none;
     margin-left: 70px;
     font-size: 16px;
+    margin-top: 15px;
 }
 
 .edusa li::before {
-    content: "•";
+    content: "🏫";
     color: var(--blue);
     display: inline-block;
     width: 1em;
