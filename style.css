@@ -1,300 +1,362 @@
-:root{
-    --blue: rgb(0 115 222);
+:root {
+  --blue: rgb(0 115 222);
 }
 
 * {
-    margin: 0 auto;
-    padding: 0 auto;
+  margin: 0 auto;
+  padding: 0 auto;
 }
 
 body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    bbackground-color: #4158D0;
-    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
-    
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #4158d0;
+  background-image: linear-gradient(
+    43deg,
+    #4158d0 0%,
+    #c850c0 46%,
+    #ffcc70 100%
+  );
+  background-attachment: fixed;
+  height: 100%;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
-.main {
-    /*border: 2px solid rgb(233, 233, 233);*/
-    border-radius: 6px;
-    width: 800px;
-    background-color: white;
-    box-shadow: 0px 0px 8px 0px #888888;
-    margin-top: 30px;
-    margin-bottom: 30px;
+main {
+  /*border: 2px solid rgb(233, 233, 233);*/
+  border-radius: 6px;
+  width: 800px;
+  background-color: white;
+  box-shadow: 0px 0px 8px 0px #888888;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 header {
-    height: 150px;
-    padding: 50px 20px;
+  height: 150px;
+  padding: 50px 20px;
 }
 
 .photo {
-    border-radius: 50%;
-    border-color: var(--blue);
-    border-style: solid;
-    border-width: 5px;
-    width: 150px;
-    height: 150px;
-    float: left;
-    object-fit: cover;
+  border-radius: 50%;
+  border-color: var(--blue);
+  border-style: solid;
+  border-width: 5px;
+  width: 150px;
+  height: 150px;
+  float: left;
+  object-fit: cover;
 }
 
 .name {
-    margin-left: 20px;
-    display: inline-block;
-    font-size: 30px;
-    text-align: center;
+  margin-left: 20px;
+  display: inline-block;
+  font-size: 30px;
+  text-align: center;
 }
 
 .short {
-    margin-left: 20px;
-    margin-top: 10px;
-    display: inline-block;
-    border-radius: 15px;
-    padding: 7px;
-    color: white;
-    background-color: var(--blue);
-    font-size: 13px;
+  margin-left: 20px;
+  margin-top: 10px;
+  display: inline-block;
+  border-radius: 15px;
+  padding: 7px;
+  color: white;
+  background-color: var(--blue);
+  font-size: 13px;
 }
 
 .contact {
-    float: right;
-    margin-top: -70px;
+  float: right;
+  margin-top: -70px;
 }
 
 .contact li a {
-    color: black;
+  color: black;
 }
 
 .contact li {
-    padding: 0 0 5px 25px;
-    list-style: none;
-    background-repeat: no-repeat;
-    background-position: left center;
-    background-size: 20px;
+  padding: 0 0 5px 25px;
+  list-style: none;
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 20px;
 }
 
 .contact li:first-child {
-    background-image: url("/img/phone-call.png");
+  background-image: url("/img/phone-call.png");
 }
 
 .contact li:nth-child(2) {
-    background-image: url("/img/email.png");
+  background-image: url("/img/email.png");
 }
 
 .contact li:last-child {
-    background-image: url("/img/globe.png");
+  background-image: url("/img/globe.png");
 }
 
 .about {
-    background-color: rgb(233, 233, 233);
-    min-height: 360px;
-    padding: 20px;
-    box-shadow: 0px 0px 10px 0px #969696;
-    overflow: hidden;
+  background-color: rgb(233, 233, 233);
+  min-height: 360px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px 0px #969696;
+  overflow: hidden;
 }
 
 .created {
-    width: 550px;
-    height: 100px;
-    float: left;
-    display: flex;
+  width: 550px;
+  height: 100px;
+  float: left;
+  display: flex;
 }
 
 h2 {
-    color: var(--blue);
-    font-size: 35px;
-    text-align: center;
+  color: var(--blue);
+  font-size: 35px;
+  text-align: center;
 }
 
 .websites,
 .clients,
 .years {
-    padding-left: 10px;
+  padding-left: 10px;
 }
 
 .aboutme {
-    width: 535px;
-    height: 130px;
-    float: left;
+  width: 535px;
+  height: 130px;
+  float: left;
 }
 
 h3 {
-    font-size: 30px;
-    text-transform: uppercase;
-    background-repeat: no-repeat;
-    background-position: left;
-    background-size: 25px;
-    padding-left: 30px;
-    margin-left: 5px;
+  font-size: 30px;
+  text-transform: uppercase;
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 25px;
+  padding-left: 30px;
+  margin-left: 5px;
 }
 
-.aboutme>h3 {
-    background-image: url(/img/user.png);
+.aboutme > h3 {
+  background-image: url(/img/user.png);
 }
 
 p {
-    line-height: 1.5em;
-    color: rgb(87, 87, 87);
+  line-height: 1.5em;
+  color: rgb(87, 87, 87);
 }
 
 .pabme {
-    font-size: 13px;
-    margin-top: 5px;
+  font-size: 13px;
+  margin-top: 5px;
 }
 
 .bio {
-    width: 160px;
-    height: 350px;
-    float: right;
-    margin-top: -90px;
+  width: 160px;
+  height: 350px;
+  float: right;
+  margin-top: -90px;
 }
 
-.bio>h3 {
-    background-image: url(/img/info.png);
+.bio > h3 {
+  background-image: url(/img/info.png);
 }
 
 .bio p:first-child {
-    padding: 10px 0 0 0;
+  padding: 10px 0 0 0;
 }
 
 .bio p {
-    padding: 10px 0 0 0;
-    color: rgb(87, 87, 87);
+  padding: 10px 0 0 0;
+  color: rgb(87, 87, 87);
 }
 
 .bio ul {
-    padding-inline-start: 0;
+  padding-inline-start: 0;
 }
 
 .bio li {
-    list-style: none;
-    color: var(--blue);
-    font-weight: bold;
+  list-style: none;
+  color: var(--blue);
+  font-weight: bold;
 }
 
 .edu {
-    height: 180px;
-    width: 780px;
-    display: inline-flex;
-    align-items: flex-start;
-    margin-top: 12px;
+  height: 180px;
+  width: 780px;
+  display: inline-flex;
+  align-items: flex-start;
+  margin-top: 12px;
 }
 
-.education>h3 {
-    background-image: url(/img/user-graduate-solid.svg);
-    margin-left: 8px;
+.education > h3 {
+  background-image: url(/img/user-graduate-solid.svg);
+  margin-left: 8px;
 }
 
 .edus {
-    list-style: none;
-    padding-left: 10px;
-    float: left;
-    font-size: 20px;
-    margin-top: 15px;
+  list-style: none;
+  padding-left: 10px;
+  float: left;
+  font-size: 20px;
+  margin-top: 15px;
 }
 
-.edus>li {
-    padding: 10px 0 0 0;
-    line-height: 27px;
+.edus > li {
+  padding: 10px 0 0 0;
+  line-height: 27px;
 }
 
 .edusa {
-    list-style-type: none;
-    margin-left: 70px;
-    font-size: 16px;
-    margin-top: 15px;
+  list-style-type: none;
+  margin-left: 70px;
+  font-size: 16px;
+  margin-top: 15px;
 }
 
 .edusa li::before {
-    content: "🏫";
-    color: var(--blue);
-    display: inline-block;
-    width: 1em;
-    margin-left: -1em;
-    font-size: 34px;
-    vertical-align: sub;
-    line-height: 38px;
-    margin-right: 10px;
+  content: "🏫";
+  color: var(--blue);
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+  font-size: 34px;
+  vertical-align: sub;
+  line-height: 38px;
+  margin-right: 10px;
 }
 
 .skills {
-    clear: both;
-    background-color: rgb(233, 233, 233);
-    height: 210px;
-    padding: 20px;
-    box-shadow: 0px 0px 10px 0px #969696;
+  clear: both;
+  background-color: rgb(233, 233, 233);
+  height: 210px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px 0px #969696;
 }
 
-.skills>h3:first-child {
-    background-image: url(/img/flag-solid.svg);
-    margin-left: 8px;
+.skills > h3:first-child {
+  background-image: url(/img/flag-solid.svg);
+  margin-left: 8px;
 }
 
-.skills>h3:nth-last-child(2) {
-    background-image: url(/img/laptop-code-solid.svg);
-    margin-left: 8px;
-    background-size: 28px;
-    margin-top: 20px;
+.skills > h3:nth-last-child(2) {
+  background-image: url(/img/laptop-code-solid.svg);
+  margin-left: 8px;
+  background-size: 28px;
+  margin-top: 20px;
 }
 
 .latvian,
 .russian,
 .english {
-    margin-top: 20px;
-    margin-left: 20px;
-    border: 2px solid var(--blue);
-    color: white;
-    border-radius: 50px;
-    padding-left: 20px;
-    width: 200px;
-    display: inline-flex;
+  margin-top: 20px;
+  margin-left: 20px;
+  border: 2px solid var(--blue);
+  color: white;
+  border-radius: 50px;
+  padding-left: 20px;
+  width: 200px;
+  display: inline-flex;
 }
 
 .latvian,
 .russian {
-    background: linear-gradient(to right, var(--blue) 95%, white 50%);
+  background: linear-gradient(to right, var(--blue) 95%, white 50%);
 }
 
 .english {
-    background: linear-gradient(to right, var(--blue) 50%, white 50%);
+  background: linear-gradient(to right, var(--blue) 50%, white 50%);
 }
 
 .hobbies {
-    margin-top: 5px;
+  margin-top: 5px;
 }
 
 footer {
-    height: 40px;
-    text-align: center;
-    margin-top: 20px;
-    color: rgb(87, 87, 87);
+  height: 40px;
+  text-align: center;
+  margin-top: 20px;
+  color: rgb(87, 87, 87);
 }
 
-footer>a {
-    color: rgb(87, 87, 87);
+footer > a {
+  color: rgb(87, 87, 87);
 }
 
 .work {
-    display: inline-flex;
+  display: inline-flex;
 }
 
-.work>h3 {
-    background-image: url(/img/laptop-house-solid.svg);
-    background-size: 30px;
+.work > h3 {
+  background-image: url(/img/laptop-house-solid.svg);
+  background-size: 30px;
 }
 
 .workul {
-    list-style: none;
-    position: absolute;
-    margin-top: 40px;
-    width: 360px;
-    font-size: 14px;
-    margin-left: -20px;
-    line-height: 1.5em;
+  list-style: none;
+  position: absolute;
+  margin-top: 40px;
+  width: 360px;
+  font-size: 14px;
+  margin-left: -20px;
+  line-height: 1.5em;
+}
+.btnportfolio,
+.btnback {
+  background-color: #4158d0;
+  background-image: linear-gradient(
+    43deg,
+    #4158d0 0%,
+    #c850c0 46%,
+    #ffcc70 100%
+  );
+  border-radius: 38px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Trebuchet MS;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 6px 13px;
+  text-decoration: none;
+  text-shadow: 0px 0px 0px #2f6627;
+  text-align: center;
+}
+.btnportfolio,
+.btnback:hover {
+  background-color: #4158d0;
+  background-image: linear-gradient(
+    43deg,
+    #344ab7 0%,
+    #ac35a4 46%,
+    #c6902b 100%
+  );
+}
+.btnportfolio,
+.btnback:active {
+  position: relative;
+  top: 1px;
+}
+.btnportfolio {
+  margin-top: 3px;
+  display: grid;
+}
+.btnback {
+  font-size: 15px;
+  padding: 8px 21px;
+}
+.cards{
+    background-color: rgb(233, 233, 233);
+    min-height: 360px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px 0px #969696;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+}
+.card{
+    flex: 1 0 21%;
 }
