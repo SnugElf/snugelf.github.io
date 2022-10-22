@@ -351,11 +351,11 @@ footer > a {
 .portfolio_select {
   margin: 10px;
 }
-@media only screen and (max-width: 920px){
-  .flex > div{
+@media screen and (max-width: 920px) {
+  .flex > div {
     margin: 0 10px 40px 10px;
   }
-  .flex{
+  .flex {
     flex-direction: column;
   }
 }
