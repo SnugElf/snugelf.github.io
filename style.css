@@ -86,15 +86,15 @@ header {
 }
 
 .contact li:first-child {
-  background-image: url("/img/phone-call.png");
+  background-image: url("img/phone-call.png");
 }
 
 .contact li:nth-child(2) {
-  background-image: url("/img/email.png");
+  background-image: url("img/email.png");
 }
 
 .contact li:last-child {
-  background-image: url("/img/globe.png");
+  background-image: url("img/globe.png");
 }
 
 .about {
@@ -106,7 +106,7 @@ header {
 }
 
 .created {
-  width: 550px;
+  max-width: 550px;
   height: 100px;
   float: left;
   display: flex;
@@ -125,8 +125,8 @@ h2 {
 }
 
 .aboutme {
-  width: 535px;
-  height: 130px;
+  max-width: 535px;
+  max-height: 130px;
   float: left;
 }
 
@@ -141,7 +141,7 @@ h3 {
 }
 
 .aboutme > h3 {
-  background-image: url(/img/user.png);
+  background-image: url(img/user.png);
 }
 
 p {
@@ -162,7 +162,7 @@ p {
 }
 
 .bio > h3 {
-  background-image: url(/img/info.png);
+  background-image: url(img/info.png);
 }
 
 .bio p:first-child {
@@ -193,7 +193,7 @@ p {
 }
 
 .education > h3 {
-  background-image: url(/img/user-graduate-solid.svg);
+  background-image: url(img/user-graduate-solid.svg);
   margin-left: 8px;
 }
 
@@ -238,12 +238,12 @@ p {
 }
 
 .skills > h3:first-child {
-  background-image: url(/img/flag-solid.svg);
+  background-image: url(img/flag-solid.svg);
   margin-left: 8px;
 }
 
 .skills > h3:nth-last-child(2) {
-  background-image: url(/img/laptop-code-solid.svg);
+  background-image: url(img/laptop-code-solid.svg);
   margin-left: 8px;
   background-size: 28px;
   margin-top: 20px;
@@ -291,7 +291,7 @@ footer > a {
 }
 
 .work > h3 {
-  background-image: url(/img/laptop-house-solid.svg);
+  background-image: url(img/laptop-house-solid.svg);
   background-size: 30px;
 }
 
@@ -350,4 +350,26 @@ footer > a {
 }
 .portfolio_select {
   margin: 10px;
+}
+@media screen and (max-width: 500px) {
+  main{
+    width: 100%;
+  }
+  .contact{
+    display: none;
+  }
+  .created{
+    flex-direction: column;
+    float: none;
+    height: 100%;
+  }
+  .btnportfolio{
+    display: none;
+  }
+  h3{
+    background-image: unset !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+    text-align: center;
+  }
 }
