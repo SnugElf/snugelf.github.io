@@ -278,7 +278,7 @@ p {
 footer {
   height: 40px;
   text-align: center;
-  margin-top: 20px;
+  padding: 20px 0 20px 0;
   color: rgb(87, 87, 87);
 }
 
@@ -299,7 +299,7 @@ footer > a {
   list-style: none;
   position: absolute;
   margin-top: 40px;
-  width: 360px;
+  max-width: 360px;
   font-size: 14px;
   margin-left: -20px;
   line-height: 1.5em;
@@ -371,5 +371,28 @@ footer > a {
     padding-left: 0 !important;
     margin-left: 0 !important;
     text-align: center;
+  }
+  .pabme{
+    text-align: center;
+  }
+  .about{
+    min-height: 570px;
+  }
+  .aboutme{
+    margin-top: 10px;
+  }
+  .edu{
+    min-height: 300px;
+    text-align: center;
+  }
+  .work{
+    margin-top: 13px;
+  }
+  .skills{
+    min-height: 210px;
+    text-align: center;
+  }
+  .latvian, .russian, .english{
+    margin-left: 0;
   }
 }
