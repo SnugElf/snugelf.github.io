@@ -82,6 +82,7 @@ footer {
 }
 main > h1 {
   font-size: 44px;
+  text-align: center;
 }
 .flex > div {
   background-color: #fff;
@@ -134,3 +135,17 @@ main > h1 {
     background-color: #f53978;
     width: 100%;
 }
+@media screen and (max-width: 850px) {
+    body{
+        min-width: 300px;
+    }
+    .flex > div {
+      margin: 0 10px 40px 10px;
+    }
+    .flex {
+      flex-direction: column;
+    }
+    .lineback{
+        top: 400px;
+    }
+  }
