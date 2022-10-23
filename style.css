@@ -18,6 +18,7 @@ body {
   );
   background-attachment: fixed;
   height: 100%;
+  min-width: 368px;
 }
 
 a {
