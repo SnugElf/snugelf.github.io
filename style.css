@@ -186,7 +186,7 @@ p {
 
 .edu {
   height: 180px;
-  width: 780px;
+  max-width: 780px;
   display: inline-flex;
   align-items: flex-start;
   margin-top: 12px;
@@ -232,7 +232,7 @@ p {
 .skills {
   clear: both;
   background-color: rgb(233, 233, 233);
-  height: 210px;
+  min-height: 210px;
   padding: 20px;
   box-shadow: 0px 0px 10px 0px #969696;
 }
@@ -382,14 +382,14 @@ footer > a {
     margin-top: 10px;
   }
   .edu{
-    min-height: 300px;
+    min-height: 325px;
     text-align: center;
+    flex-direction: column;
   }
   .work{
     margin-top: 13px;
   }
   .skills{
-    min-height: 210px;
     text-align: center;
   }
   .latvian, .russian, .english{
