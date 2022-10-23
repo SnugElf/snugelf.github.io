@@ -186,7 +186,7 @@ p {
 
 .edu {
   height: 180px;
-  max-width: 780px;
+  min-width: 780px;
   display: inline-flex;
   align-items: flex-start;
   margin-top: 12px;
@@ -384,7 +384,10 @@ footer > a {
   .edu{
     min-height: 325px;
     text-align: center;
+    display: flex;
     flex-direction: column;
+    max-width: 780px;
+    min-width: 0;
   }
   .work{
     margin-top: 13px;
