@@ -4,7 +4,12 @@
 }
 
 body {
-  max-width: 1440px;
+    background-color: #232323;
+}
+
+.container{
+    max-width: 1440px;
+    position: relative;
 }
 
 h1,
@@ -71,15 +76,16 @@ li a:hover {
   font-weight: bold;
   padding: 12px 54px;
   text-decoration: none;
-  position: absolute;
+  position: relative;
   right: 130px;
+  float: right;
 }
 .btn_contact:hover {
-  background-color: transparent;
+    background-color: #232323;
+    color: #fff;
 }
 .btn_contact:active {
-  position: relative;
-  top: 1px;
+    margin-top: 1px;
 }
 .lorem_header,
 .lorem_memory {
@@ -141,9 +147,10 @@ header {
   text-decoration: none;
   height: 20px;
   margin-top: 100px;
+  z-index: 1;
 }
 .btn_reserve:hover {
-  background-color: #5cbf2a;
+    background-color: #444444;
 }
 .btn_reserve:active {
   position: relative;
