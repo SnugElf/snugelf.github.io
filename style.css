@@ -352,6 +352,10 @@ footer > a {
 .portfolio_select {
   margin: 10px;
 }
+.portfolio_select>img{
+  width: 200px;
+  height: 150px;
+}
 @media screen and (max-width: 500px) {
   main{
     width: 100%;
