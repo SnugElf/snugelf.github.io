@@ -338,55 +338,59 @@ footer > a {
 }
 .btnportfolio:active,
 .btnback:active {
-  position: relative;
+  position: absolute;
   top: 1px;
 }
 .btnportfolio {
   margin-top: 3px;
-  display: grid;
+  position: absolute;
+  right: 0;
 }
 .btnback {
   font-size: 15px;
   padding: 8px 21px;
 }
+.portfolio {
+  position: relative;
+}
 .portfolio_select {
   margin: 10px;
 }
-.portfolio_select>img{
+.portfolio_select > img {
   width: 200px;
   height: 150px;
 }
 @media screen and (max-width: 500px) {
-  main{
+  main {
     width: 100%;
   }
-  .contact{
+  .contact {
     display: none;
   }
-  .created{
+  .created {
     flex-direction: column;
     float: none;
     height: 100%;
   }
-  .btnportfolio{
+  .btnportfolio {
     display: none;
   }
-  h3{
+  h3 {
     background-image: unset !important;
     padding-left: 0 !important;
     margin-left: 0 !important;
     text-align: center;
   }
-  .pabme{
+  .pabme {
     text-align: center;
   }
-  .about{
+  .about {
     min-height: 570px;
   }
-  .aboutme{
+  .aboutme {
     margin-top: 10px;
   }
-  .edu{
+  .edu {
     min-height: 325px;
     text-align: center;
     display: flex;
@@ -394,13 +398,15 @@ footer > a {
     max-width: 780px;
     min-width: 0;
   }
-  .work{
+  .work {
     margin-top: 13px;
   }
-  .skills{
+  .skills {
     text-align: center;
   }
-  .latvian, .russian, .english{
+  .latvian,
+  .russian,
+  .english {
     margin-left: 0;
   }
 }
