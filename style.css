@@ -356,7 +356,7 @@ footer > a {
 .portfolio_select {
   margin: 10px;
 }
-.portfolio_select > img {
+.portfolio_select > a > img {
   width: 200px;
   height: 150px;
 }

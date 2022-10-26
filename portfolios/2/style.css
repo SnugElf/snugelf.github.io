@@ -1,15 +1,19 @@
+:root {
+  --darkcolor: #232323;
+}
+
 * {
   margin: 0 auto;
   padding: 0 auto;
 }
 
 body {
-    background-color: #232323;
+  /* background-color: var(--darkcolor); */
 }
 
-.container{
-    max-width: 1440px;
-    position: relative;
+.container {
+  max-width: 1440px;
+  position: relative;
 }
 
 h1,
@@ -21,15 +25,20 @@ h1 {
   font-size: 80px;
 }
 h2 {
-  font-size: 13pt;
+  font-size: 55px;
 }
-p {
+p,
+.btn_contact,
+.btn_reserve,
+.btn_travel_logs {
   font-family: "lato-regular", sans-serif;
 }
 
 header {
-  padding-top: 82px;
+  padding-top: 71px;
   padding-left: 103px;
+  min-height: 730px;
+  background-color: #e9e7e7;
 }
 
 ul {
@@ -59,7 +68,7 @@ li a:hover {
 }
 
 .active {
-  color: #232323;
+  color: var(--darkcolor);
   font-family: "lato-black", sans-serif;
   font-weight: bold;
 }
@@ -67,11 +76,10 @@ li a:hover {
 .btn_contact {
   background-color: transparent;
   border-radius: 8px;
-  border: 3px solid #232323;
+  border: 3px solid var(--darkcolor);
   display: inline-block;
   cursor: pointer;
-  color: #232323;
-  font-family: Arial;
+  color: var(--darkcolor);
   font-size: 20px;
   font-weight: bold;
   padding: 12px 54px;
@@ -81,33 +89,25 @@ li a:hover {
   float: right;
 }
 .btn_contact:hover {
-    background-color: #232323;
-    color: #fff;
+  background-color: var(--darkcolor);
+  color: #fff;
 }
 .btn_contact:active {
-    margin-top: 1px;
-}
-.lorem_header,
-.lorem_memory {
-  font-size: 4pt;
-}
-header {
-  min-height: 818px;
-  background-color: #e9e7e7;
+  margin-top: 1px;
 }
 
 .header_left_light,
 .header_right_light {
   position: absolute;
 }
-.header_left_light{
-    left: 0;
-    max-width: 568px;
-    top: 310px;
+.header_left_light {
+  left: 0;
+  max-width: 568px;
+  top: 310px;
 }
-.header_right_light{
-    right: 0;
-    top: 485px;
+.header_right_light {
+  right: 0;
+  top: 485px;
 }
 .head_text_img {
   display: grid;
@@ -135,24 +135,72 @@ header {
 }
 .btn_reserve {
   grid-area: 2 / 1 / 4 / 2;
-  background-color: #232323;
+  background-color: var(--darkcolor);
   border-radius: 8px;
   display: inline-block;
   cursor: pointer;
   color: #fcf7fc;
-  font-family: Arial;
   font-size: 20px;
   font-weight: bold;
   padding: 20px 54px;
   text-decoration: none;
   height: 20px;
-  margin-top: 100px;
+  margin-top: 113px;
   z-index: 1;
 }
 .btn_reserve:hover {
-    background-color: #444444;
+  background-color: #444444;
 }
 .btn_reserve:active {
   position: relative;
   top: 1px;
+}
+.memory {
+  height: 390px;
+  background-color: var(--darkcolor);
+  color: #fff;
+  position: relative;
+  text-align: center;
+}
+.memory_text {
+  max-width: 500px;
+  padding-top: 45px;
+}
+.lorem_memory {
+  font-size: 16px;
+  margin-top: 14px;
+}
+.btn_travel_logs {
+  background-color: transparent;
+  border-radius: 8px;
+  border: 3px solid #fff;
+  display: inline-block;
+  cursor: pointer;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 12px 54px;
+  text-decoration: none;
+  --topmarg: 48px;
+  margin-top: var(--topmarg);
+}
+.btn_travel_logs:hover {
+  background-color: #fff;
+  color: var(--darkcolor);
+}
+.btn_travel_logs:active {
+  margin-top: calc(var(--topmarg) + 1px);
+}
+.left_Scribble_Light,
+.right_Scribble_Light {
+  position: absolute;
+}
+
+.left_Scribble_Light {
+  left: 0;
+  top: 59px;
+}
+.right_Scribble_Light {
+  right: 0;
+  top: 242px;
 }
