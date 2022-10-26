@@ -357,6 +357,7 @@ li a:hover {
 }
 .anywhere_light {
   left: 0;
+  margin-top: 50px;
 }
 .anywhere > h2 {
   padding-top: 140px;
@@ -388,4 +389,39 @@ li a:hover {
     position: absolute;
     right: 0;
     top: 145px;
+}
+.withlines{
+    position: relative;
+    background-color: var(--mainbg);
+}
+.lines_heading{
+    font-size: 80px;
+    margin-top: 178px;
+    margin-left: 117px;
+    line-height: 1;
+    max-width: 750px;
+}
+.ul_lines{
+    display: flex;
+    flex-direction: column;
+    margin-top: 98px;
+    max-width: 700px;
+    font-size: 16px;
+    line-height: 59.5px;
+}
+.linesdiv_line{
+    width: 735px;
+    background-color: #232323;
+    height: 3px;
+    margin-left: 115px;
+}
+.ul_lines > li::after{
+    content: "+";
+    font-size: 50px;
+    position: absolute;
+    margin-left: 126px;
+}
+.sit_man_mountain{
+    right: 111px;
+    top: 0;
 }
