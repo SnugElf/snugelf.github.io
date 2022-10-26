@@ -358,7 +358,7 @@ footer > a {
 }
 .portfolio_select > a > img {
   width: 200px;
-  height: 150px;
+  height: 120px;
 }
 @media screen and (max-width: 500px) {
   main {
