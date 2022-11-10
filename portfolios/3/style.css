@@ -1,0 +1,36 @@
+* {
+  margin: 0 auto;
+  padding: 0 auto;
+}
+.container{
+  max-width: 1150px;
+}
+.logo > img{
+  max-width: 170px;
+  margin-top: 27px;
+  margin-left: 5px;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+  font-size: 20px;
+}
+
+li {
+  float: left;
+  margin-right: 42px;
+}
+
+li a {
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  color: #515155;
+}
+
+li a:hover {
+  text-decoration: underline;
+}
