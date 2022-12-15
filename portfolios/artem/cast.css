@@ -1,0 +1,50 @@
+* {
+  margin: 0 auto;
+  padding: 0 auto;
+  color: #fff;
+  font-family: sans-serif;
+}
+body {
+  background-color: #399c8c;
+}
+a {
+  text-decoration: none;
+}
+.container {
+  max-width: 1200px;
+  text-align: center;
+}
+h1 {
+  font-size: 60px;
+}
+.cast {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: flex-start;
+  width: 720px;
+  overflow: auto;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 50px;
+}
+.actor {
+  width: 330px;
+  height: 120px;
+  margin: 15px;
+  text-align: center;
+  overflow: auto;
+  vertical-align: middle;
+}
+.actor > img {
+  width: 70px;
+  border-radius: 10%;
+  float: left;
+}
+.actor > h2 {
+  font-size: 20px;
+}
+.actor > h3 {
+  font-weight: 500;
+  font-size: 17px;
+}
