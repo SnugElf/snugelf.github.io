@@ -26,7 +26,8 @@
         </nav>
         <div class="mt-5 text-center my-auto">
             <h2 class="text-2xl font-semibold">About me:</h2>
-            <p class="w-2/3 mx-auto mt-2">A young, ambitious, productive guy starting his real career in IT. I am
+            <p class="cardsscreen:w-2/3 mx-auto mt-2">A young, ambitious, productive guy starting his real career in IT.
+                I am
                 very responsible. At school I was trusted with the sound equipment and conducting all events. Since 2016
                 I am
                 studying and progressing in Web Development. And from 2015 to 2022 I worked on three websites as an
@@ -34,10 +35,29 @@
                 users with technical problems.</p>
         </div>
         <a href="files/Andrejs_Kaļagins_CV_ENG.pdf" target="_blank"
-            class="font-semibold mx-auto max-w-[150px] cursor-pointer flex justify-center mt-3 rounded-full px-4 py-1 bg-blue-600 hover:bg-blue-800 hover:drop-shadow-xl active:relative active:top-1 transition ease-in-out delay-150 hover:translate-y-1 hover:scale-110 duration-200">
-            Download CV</a>
+            class="font-semibold mx-auto max-w-[180px] cursor-pointer flex justify-center mt-3 rounded-full px-4 py-1 bg-blue-600 hover:bg-blue-800 hover:drop-shadow-xl active:relative active:top-1 transition ease-in-out delay-150 hover:translate-y-1 hover:scale-110 duration-200">
+            Download CV - PDF</a>
     </header>
     <main class="container mx-auto mt-5">
+        <div class="flex justify-center align-middle mt-6 text-center cardsscreen:text-left">
+            <div class="hidden cardsscreen:block"><svg id="airplane" width="200" height="200" fill="#ffffff"
+                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 5.25A2.625 2.625 0 1 0 12 0a2.625 2.625 0 0 0 0 5.25Z"></path>
+                    <path
+                        d="M14.25 6h-4.5a3.009 3.009 0 0 0-3 3v5.04c0 .509.395.941.903.96a.938.938 0 0 0 .972-.938V9.389A.383.383 0 0 1 8.975 9a.375.375 0 0 1 .4.375v13.546a1.078 1.078 0 0 0 2.156 0v-6.687a.48.48 0 0 1 .438-.485.469.469 0 0 1 .5.469v6.703a1.078 1.078 0 1 0 2.156 0V9.388a.383.383 0 0 1 .35-.387.375.375 0 0 1 .4.375v4.665c0 .508.395.941.903.96a.937.937 0 0 0 .972-.938V9a3.009 3.009 0 0 0-3-3Z">
+                    </path>
+                </svg></div>
+            <ul class="text-lg">
+                <li><b>Age:</b> 20</li>
+                <li><b>Gender:</b> Male</li>
+                <li><b>Hobbies:</b> Deejaying, Boxing, Automechanics, Traveling</li>
+                <li><b>Favorite Music:</b> Jazz, House, Retro</li>
+                <li><b>Education:</b> Secondary education</li>
+                <li><b>Relationship Status:</b> Single</li>
+                <li><b>Lives in:</b> Riga, Latvia</li>
+            </ul>
+        </div>
+        <h2 class="text-2xl mt-6 font-semibold text-center cardsscreen:text-left">Portfolio</h2>
         <div
             class="cards flex mx-auto flex-col items-center space-y-3 cardsscreen:space-x-10 cardsscreen:justify-center cardsscreen:space-y-0 cardsscreen:flex-row">
             <div class="card bg-slate-800 max-w-sm rounded-lg p-5 text-center space-y-3">
@@ -66,7 +86,7 @@
             class="rounded-lg px-4 py-2 bg-blue-700 flex justify-center max-w-max mx-auto mt-6 hover:bg-blue-900 transition ease-in-out delay-150 hover:translate-y-1 hover:scale-110 duration-200">Click
             to see full portfolio</a>
         <div class="skills mt-5">
-            <h2 class="text-2xl font-semibold">What I can do</h2>
+            <h2 class="text-2xl font-semibold text-center cardsscreen:text-left">What I can do</h2>
             <div class="flex flex-col space-y-3 mt-5">
                 <div class="bg-slate-800 rounded-lg p-3 text-center">
                     <div class="float-left"><svg id="airplane" width="40" height="40" fill="#ffffff" viewBox="0 0 24 24"
@@ -129,21 +149,72 @@
             </div>
         </div>
         <div class="languages mt-5 grid">
-            <h2 class="text-2xl font-semibold">My language skills</h2>
-            <div class="grid gap-2 grid-cols-3 mt-5">
+            <h2 class="text-2xl font-semibold text-center cardsscreen:text-left">My language skills</h2>
+            <div class="grid gap-2 grid-cols-1 cardsscreen:grid-cols-3 mt-5">
                 <div class="bg-slate-800 rounded-lg p-3 text-center">
-                    <div class="float-left"><img src="/img/countries/latvia.png" alt="latviaflag" class="w-10 h-10 mt-1"></div>
+                    <div class="float-left"><img src="/img/countries/latvia.png" alt="latviaflag"
+                            class="w-10 h-10 mt-1"></div>
                     <span class="font-semibold">Latvian</span>
                     <p>Is my native language.</p>
                 </div>
                 <div class="bg-slate-800 rounded-lg p-3 text-center">
-                    <div class="float-left"><img src="/img/countries/united-states.png" alt="usaflag" class="w-10 h-10 mt-1"></div>
+                    <div class="float-left"><img src="/img/countries/united-states.png" alt="usaflag"
+                            class="w-10 h-10 mt-1"></div>
                     <span class="font-semibold">English</span>
                     <p>Sometimes I need a translator.</p>
-                </div><div class="bg-slate-800 rounded-lg p-3 text-center">
-                    <div class="float-left"><img src="/img/countries/russia.png" alt="russiaflag" class="w-10 h-10 mt-1"></div>
+                </div>
+                <div class="bg-slate-800 rounded-lg p-3 text-center">
+                    <div class="float-left"><img src="/img/countries/russia.png" alt="russiaflag"
+                            class="w-10 h-10 mt-1"></div>
                     <span class="font-semibold">Russian</span>
                     <p>I know it very well.</p>
+                </div>
+            </div>
+        </div>
+        <div class="mt-5">
+            <h2 class="text-2xl font-semibold text-center cardsscreen:text-left">My education</h2>
+            <div class="flex gap-2 flex-col justify-center mt-5 ">
+                <div class="bg-slate-800 rounded-lg p-3 text-center">
+                    <svg class="inline " id="airplane" width="40" height="40" fill="#ffffff" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 17.253a.75.75 0 0 1-.372-.099l-6.566-3.752a.375.375 0 0 0-.562.325v3.526a.75.75 0 0 0 .386.656l6.75 3.75a.75.75 0 0 0 .728 0l6.75-3.75a.75.75 0 0 0 .386-.656v-3.526a.376.376 0 0 0-.563-.325l-6.565 3.752a.751.751 0 0 1-.372.1Z">
+                        </path>
+                        <path
+                            d="M23.247 8.93v-.006a.75.75 0 0 0-.375-.575l-10.5-6a.75.75 0 0 0-.744 0l-10.5 6a.75.75 0 0 0 0 1.302l10.5 6a.75.75 0 0 0 .744 0l9.238-5.278a.094.094 0 0 1 .14.081v6.775c0 .403.311.75.715.77a.75.75 0 0 0 .786-.75V9a.688.688 0 0 0-.004-.07Z">
+                        </path>
+                    </svg>
+                    <span class="font-semibold">Riga 93. Secondary School</span>
+                    <p>Secondary education - 12 grades</p>
+                    <span class="font-semibold">2009 - 2021</span>
+                </div>
+                <div class="bg-slate-800 rounded-lg p-3 text-center">
+                    <svg class="inline p-1" id="airplane" width="40" height="40" fill="#ffffff" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M20.25 1.5H3.75a3.003 3.003 0 0 0-3 3v15a3.003 3.003 0 0 0 3 3h16.5a3.004 3.004 0 0 0 3-3v-15a3.003 3.003 0 0 0-3-3ZM4.5 12a.75.75 0 0 1-.469-1.335L7.05 8.25 4.03 5.835a.75.75 0 0 1 .938-1.171l3.75 3a.75.75 0 0 1 0 1.171l-3.75 3A.75.75 0 0 1 4.5 12Zm7.5 0H9a.75.75 0 1 1 0-1.5h3a.75.75 0 1 1 0 1.5Z">
+                        </path>
+                    </svg>
+                    <span class="font-semibold">Geek Brains</span>
+                    <p>Online IT University - Web Development</p>
+                    <span class="font-semibold">2016 - ...</span>
+                </div>
+            </div>
+        </div>
+        <div class="mt-5">
+            <h2 class="text-2xl font-semibold text-center cardsscreen:text-left">Script examples</h2>
+            <div class="flex flex-col space-y-2 mt-5">
+                <div>
+                    <span class="font-semibold">Tic Tac Toe</span>
+                    <a href="scripts/tictac/index.html" class="rounded-lg px-4 py-1 bg-blue-600 hover:bg-blue-800 inline-block">Open</a>
+                </div>
+                <div>
+                    <span class="font-semibold">Currency converter</span>
+                    <a href="scripts/" class="rounded-lg px-4 py-1 bg-blue-600 hover:bg-blue-800 inline-block">Open</a>
+                </div>
+                <div>
+                    <span class="font-semibold">Subscription calculator</span>
+                    <a href="scripts/" class="rounded-lg px-4 py-1 bg-blue-600 hover:bg-blue-800 inline-block">Open</a>
                 </div>
             </div>
         </div>
@@ -153,14 +224,17 @@
         <p class="mt-3">Andrejs Kaļagins &copy;</p>
     </footer>
     <div class="hidden" id="modal">
-        <div class="fixed top-0 left-0 right-0 bottom-0 w-full h-full bg-black bg-opacity-75 z-50 flex items-center justify-center" onclick="closeModal()">
-            <div class="relative mx-auto my-0 max-w-md rounded-lg bg-slate-800 p-8">    
+        <div class="fixed top-0 left-0 right-0 bottom-0 w-full h-full bg-black bg-opacity-75 z-50 flex items-center justify-center"
+            onclick="closeModal()">
+            <div class="relative mx-auto my-0 max-w-md rounded-lg bg-slate-800 p-8">
                 <div class="flex items-center justify-between">
                     <h2 class="text-lg font-medium">How to contact with me?</h2>
                     <button class="bg-slate-600 rounded-lg p-1 ml-3" onclick="closeModal()">
                         <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
                         </svg>
                     </button>
                 </div>
@@ -171,9 +245,10 @@
         </div>
     </div>
     <script>
-        document.getElementById("modal-btn").onclick = function() {
+        document.getElementById("modal-btn").onclick = function () {
             document.getElementById("modal").classList.remove("hidden");
         }
+
         function closeModal() {
             document.getElementById("modal").classList.add("hidden");
         }
