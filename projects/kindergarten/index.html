@@ -1,59 +1,886 @@
-<!DOCTYPE html>
-<html lang="ru">
+<!doctype html>
+<html lang="lv">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kindergarten</title>
+  <title>Bērnudārzs “Saules Stars”</title>
+  <meta name="description" content="Mūsdienīgs, minimālistisks bērnudārza mājaslapas paraugs." />
+
+  <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      background: #0b0d10;
-      color: #f5f7fa;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    }
-    .hero {
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      padding: 2rem;
-      background:
-        radial-gradient(circle at top left, rgba(110,168,254,.14), transparent 30%),
-        radial-gradient(circle at bottom right, rgba(13,110,253,.10), transparent 25%),
-        #0b0d10;
-    }
-    .box {
-      max-width: 760px;
-      width: 100%;
-      background: rgba(255,255,255,.03);
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 24px;
-      padding: 2rem;
-      box-shadow: 0 18px 50px rgba(0,0,0,.35);
-    }
-    .badge-soft {
-      display: inline-block;
-      padding: .5rem .9rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.1);
-      background: rgba(255,255,255,.04);
-      color: #cbd5e1;
-      margin-bottom: 1rem;
-    }
-    .muted { color: #94a3b8; }
-  </style>
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
-  <section class="hero">
-    <div class="box">
-      <div class="badge-soft">Demo Project</div>
-      <h1 class="display-5 fw-bold mb-3">Kindergarten</h1>
-      <p class="lead muted mb-4">Демо-страница проекта детсада. Можно заменить на свою настоящую верстку.</p>
-      <div class="d-flex flex-wrap gap-3">
-        <a href="../../index.html" class="btn btn-light">← Назад в портфолио</a>
-        <a href="#" class="btn btn-outline-info">Твоя кнопка</a>
+  <!-- Top bar -->
+  <div class="topbar py-2 border-bottom">
+    <div class="container d-flex flex-wrap gap-2 justify-content-between align-items-center">
+      <div class="d-flex flex-wrap gap-3 small text-muted align-items-center">
+        <span><i class="bi bi-geo-alt me-1"></i>Rīga, Brīvības iela 123</span>
+        <a class="link-muted text-decoration-none" href="tel:+37120000000">
+          <i class="bi bi-telephone me-1"></i>+371 20 000 000
+        </a>
+        <a class="link-muted text-decoration-none" href="mailto:info@saulesstars.lv">
+          <i class="bi bi-envelope me-1"></i>info@saulesstars.lv
+        </a>
+      </div>
+      <div class="d-flex gap-2">
+        <a class="btn btn-sm btn-outline-secondary" href="#uznemsana">Uzņemšana</a>
+        <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#pieteikumsModal">
+          Pieteikt vizīti
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-white sticky-top border-bottom">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#sakums">
+        <span class="brand-mark">☀️</span>
+        <span class="fw-semibold">Saules Stars</span>
+        <span class="badge text-bg-light border ms-2 d-none d-md-inline">Bērnudārzs</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain"
+        aria-controls="navMain" aria-expanded="false" aria-label="Izvēlne">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-1">
+          <li class="nav-item"><a class="nav-link" href="#sakums">Sākums</a></li>
+          <li class="nav-item"><a class="nav-link" href="#par">Par mums</a></li>
+          <li class="nav-item"><a class="nav-link" href="#programmas">Programmas</a></li>
+          <li class="nav-item"><a class="nav-link" href="#grafiks">Dienas ritms</a></li>
+          <li class="nav-item"><a class="nav-link" href="#jaunumi">Jaunumi</a></li>
+          <li class="nav-item"><a class="nav-link" href="#uznemsana">Uzņemšana</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kontakti">Kontakti</a></li>
+        </ul>
+
+        <div class="ms-lg-3 d-flex gap-2">
+          <button class="btn btn-outline-secondary" id="themeToggle" type="button" aria-label="Tēmas maiņa">
+            <i class="bi bi-moon-stars"></i>
+          </button>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pieteikumsModal">
+            <i class="bi bi-calendar2-check me-1"></i>Pieteikties
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header id="sakums" class="hero-section">
+    <div class="container py-5 py-lg-6">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-6">
+          <div class="eyebrow text-uppercase small text-muted mb-2">Sirsnīga vide • Drošība • Attīstība</div>
+          <h1 class="display-5 fw-bold lh-sm mb-3">
+            Bērnudārzs, kur bērni aug ar smaidu ☀️
+          </h1>
+          <p class="lead text-muted mb-4">
+            Moderns, minimālistisks paraugs: vienkārši nomaini tekstus, attēlus un kontaktus — un viss ir gatavs.
+          </p>
+
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-primary btn-lg" href="#programmas">
+              Apskatīt programmas <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+            <button class="btn btn-outline-secondary btn-lg" data-bs-toggle="modal" data-bs-target="#virtualaTureModal">
+              Virtuālā tūre
+            </button>
+          </div>
+
+          <div class="mt-4 d-flex flex-wrap gap-3 text-muted small">
+            <div class="d-flex align-items-center gap-2">
+              <i class="bi bi-shield-check"></i><span>Drošas telpas un piekļuve</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i class="bi bi-heart"></i><span>Empātiski pedagogi</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i class="bi bi-egg-fried"></i><span>Sabalansēta ēdināšana</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="hero-card p-4 p-lg-5">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+              <div>
+                <div class="fw-semibold">Ātra informācija</div>
+                <div class="text-muted small">Viss “klikšķināms” priekš demo</div>
+              </div>
+              <span class="pill">2026</span>
+            </div>
+
+            <div class="row g-3">
+              <div class="col-6">
+                <a class="mini-tile" href="#uznemsana">
+                  <i class="bi bi-person-plus"></i>
+                  <div>
+                    <div class="fw-semibold">Uzņemšana</div>
+                    <div class="small text-muted">Vietas un noteikumi</div>
+                  </div>
+                </a>
+              </div>
+              <div class="col-6">
+                <a class="mini-tile" href="#grafiks">
+                  <i class="bi bi-clock"></i>
+                  <div>
+                    <div class="fw-semibold">Dienas ritms</div>
+                    <div class="small text-muted">Grafiks un miegs</div>
+                  </div>
+                </a>
+              </div>
+              <div class="col-6">
+                <a class="mini-tile" href="#jaunumi">
+                  <i class="bi bi-newspaper"></i>
+                  <div>
+                    <div class="fw-semibold">Jaunumi</div>
+                    <div class="small text-muted">Notikumi un ziņas</div>
+                  </div>
+                </a>
+              </div>
+              <div class="col-6">
+                <button class="mini-tile w-100 text-start" data-bs-toggle="modal" data-bs-target="#pieteikumsModal">
+                  <i class="bi bi-send"></i>
+                  <div>
+                    <div class="fw-semibold">Pieteikt vizīti</div>
+                    <div class="small text-muted">Aizpildi formu</div>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            <hr class="my-4">
+
+            <div class="d-flex flex-wrap gap-2 align-items-center justify-content-between">
+              <div class="small text-muted">
+                <i class="bi bi-star-fill me-1"></i>Vecāku atsauksmes: <span class="fw-semibold">4.9/5</span>
+              </div>
+              <a href="#kontakti" class="small text-decoration-none">Sazināties <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- subtle background shapes -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+  </header>
+
+  <!-- About -->
+  <section id="par" class="section">
+    <div class="container">
+      <div class="row align-items-start g-4">
+        <div class="col-lg-5">
+          <h2 class="fw-bold mb-3">Par mums</h2>
+          <p class="text-muted mb-4">
+            “Saules Stars” ir vieta, kur bērni jūtas droši un tiek iedrošināti mācīties caur rotaļām.
+            Šis ir demo — tekstus un bildes var nomainīt pēc vajadzības.
+          </p>
+
+          <div class="d-grid gap-2">
+            <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#komandaModal">
+              <i class="bi bi-people me-1"></i>Iepazīt komandu
+            </button>
+            <a class="btn btn-primary" href="#uznemsana">
+              <i class="bi bi-check2-circle me-1"></i>Kā pieteikties
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="feature-card">
+                <div class="icon-wrap"><i class="bi bi-shield-check"></i></div>
+                <h3 class="h5 fw-semibold mt-3">Drošība pirmajā vietā</h3>
+                <p class="text-muted mb-0">Piekļuves kontrole, skaidri noteikumi un ikdienas rutīna.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="feature-card">
+                <div class="icon-wrap"><i class="bi bi-brush"></i></div>
+                <h3 class="h5 fw-semibold mt-3">Radošums un valodas</h3>
+                <p class="text-muted mb-0">Mūzika, zīmēšana, latviešu valoda un socializēšanās.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="feature-card">
+                <div class="icon-wrap"><i class="bi bi-tree"></i></div>
+                <h3 class="h5 fw-semibold mt-3">Āra aktivitātes</h3>
+                <p class="text-muted mb-0">Katru dienu svaigs gaiss un kustības (laikapstākļiem atbilstoši).</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="feature-card">
+                <div class="icon-wrap"><i class="bi bi-egg-fried"></i></div>
+                <h3 class="h5 fw-semibold mt-3">Ēdināšana</h3>
+                <p class="text-muted mb-0">Sabalansēta ēdienkarte; alerģiju izvēlnes pēc pieprasījuma.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="row g-3 mt-4">
+        <div class="col-6 col-lg-3">
+          <div class="stat-card">
+            <div class="stat-number">3–6</div>
+            <div class="text-muted small">Vecuma grupas</div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="stat-card">
+            <div class="stat-number">08:00–18:30</div>
+            <div class="text-muted small">Darba laiks</div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="stat-card">
+            <div class="stat-number">4</div>
+            <div class="text-muted small">Programmu virzieni</div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="stat-card">
+            <div class="stat-number">1</div>
+            <div class="text-muted small">Sirsnīga komanda</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- Programs -->
+  <section id="programmas" class="section bg-soft">
+    <div class="container">
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-4">
+        <div>
+          <h2 class="fw-bold mb-1">Programmas</h2>
+          <p class="text-muted mb-0">Klikšķini uz kartītēm — atveras detaļas.</p>
+        </div>
+        <div class="d-flex gap-2">
+          <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#cenasModal">
+            Cenas (demo)
+          </button>
+          <a class="btn btn-primary btn-sm" href="#uznemsana">Pieteikties</a>
+        </div>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-md-6 col-lg-3">
+          <button class="program-card w-100 text-start" data-bs-toggle="modal" data-bs-target="#progModal"
+            data-title="Valoda & stāsti"
+            data-desc="Lasīšana, stāstu veidošana, ritmika un valodas spēles."
+            data-age="3–6 gadi">
+            <div class="pc-icon"><i class="bi bi-chat-dots"></i></div>
+            <div class="fw-semibold">Valoda & stāsti</div>
+            <div class="text-muted small">Runāšana, klausīšanās, dziesmas</div>
+          </button>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <button class="program-card w-100 text-start" data-bs-toggle="modal" data-bs-target="#progModal"
+            data-title="Radošās darbnīcas"
+            data-desc="Zīmēšana, aplikācijas, māla darbi, sīkmotorika."
+            data-age="3–6 gadi">
+            <div class="pc-icon"><i class="bi bi-palette"></i></div>
+            <div class="fw-semibold">Radošās darbnīcas</div>
+            <div class="text-muted small">Māksla, rokdarbnieki, krāsas</div>
+          </button>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <button class="program-card w-100 text-start" data-bs-toggle="modal" data-bs-target="#progModal"
+            data-title="Kustība & sports"
+            data-desc="Stāja, koordinācija, rotaļas, viegla vingrošana."
+            data-age="3–6 gadi">
+            <div class="pc-icon"><i class="bi bi-activity"></i></div>
+            <div class="fw-semibold">Kustība & sports</div>
+            <div class="text-muted small">Āra aktivitātes, ritms, spēles</div>
+          </button>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <button class="program-card w-100 text-start" data-bs-toggle="modal" data-bs-target="#progModal"
+            data-title="Zinātkāre & daba"
+            data-desc="Vienkārši eksperimenti, daba, gadalaiki un vērojumi."
+            data-age="4–6 gadi">
+            <div class="pc-icon"><i class="bi bi-flower1"></i></div>
+            <div class="fw-semibold">Zinātkāre & daba</div>
+            <div class="text-muted small">Eksperimenti, izziņa, pastaigas</div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Daily schedule -->
+  <section id="grafiks" class="section">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-5">
+          <h2 class="fw-bold mb-2">Dienas ritms</h2>
+          <p class="text-muted mb-4">Piemērs, ko var pielāgot konkrētajam bērnudārzam.</p>
+
+          <div class="alert alert-light border d-flex gap-2 align-items-start">
+            <i class="bi bi-info-circle mt-1"></i>
+            <div class="small">
+              <div class="fw-semibold">Piezīme</div>
+              Grafiks var mainīties sezonāli un atkarībā no grupas.
+            </div>
+          </div>
+
+          <a class="btn btn-outline-secondary" href="#kontakti">
+            Uzdot jautājumu <i class="bi bi-arrow-right ms-1"></i>
+          </a>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="timeline">
+            <div class="t-item">
+              <div class="t-time">08:00</div>
+              <div class="t-card">
+                <div class="fw-semibold">Ierašanās & brīvā rotaļa</div>
+                <div class="text-muted small">Mierīga adaptācija un socializēšanās.</div>
+              </div>
+            </div>
+
+            <div class="t-item">
+              <div class="t-time">09:00</div>
+              <div class="t-card">
+                <div class="fw-semibold">Brokastis</div>
+                <div class="text-muted small">Sabalansēta ēdienkarte (demo).</div>
+              </div>
+            </div>
+
+            <div class="t-item">
+              <div class="t-time">10:00</div>
+              <div class="t-card">
+                <div class="fw-semibold">Nodarbības / aktivitātes</div>
+                <div class="text-muted small">Valoda, radošums, kustības.</div>
+              </div>
+            </div>
+
+            <div class="t-item">
+              <div class="t-time">12:00</div>
+              <div class="t-card">
+                <div class="fw-semibold">Pusdienas</div>
+                <div class="text-muted small">Siltas maltītes un atpūta.</div>
+              </div>
+            </div>
+
+            <div class="t-item">
+              <div class="t-time">13:00</div>
+              <div class="t-card">
+                <div class="fw-semibold">Diendusa</div>
+                <div class="text-muted small">Klusā stunda, mierīga vide.</div>
+              </div>
+            </div>
+
+            <div class="t-item">
+              <div class="t-time">15:30</div>
+              <div class="t-card">
+                <div class="fw-semibold">Launags & āra laiks</div>
+                <div class="text-muted small">Pastaigas un rotaļas svaigā gaisā.</div>
+              </div>
+            </div>
+
+            <div class="t-item">
+              <div class="t-time">17:00</div>
+              <div class="t-card">
+                <div class="fw-semibold">Dienas noslēgums</div>
+                <div class="text-muted small">Vecāku ierašanās, īsa atgriezeniskā saite.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- News -->
+  <section id="jaunumi" class="section bg-soft">
+    <div class="container">
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-4">
+        <div>
+          <h2 class="fw-bold mb-1">Jaunumi</h2>
+          <p class="text-muted mb-0">Demo ar filtru — strādā uzreiz.</p>
+        </div>
+
+        <div class="d-flex gap-2 align-items-center">
+          <label class="small text-muted" for="newsFilter">Filtrs:</label>
+          <select class="form-select form-select-sm" id="newsFilter" style="width: 220px;">
+            <option value="all" selected>Visi</option>
+            <option value="pasakumi">Pasākumi</option>
+            <option value="vecaki">Vecākiem</option>
+            <option value="edinasana">Ēdināšana</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row g-3" id="newsGrid">
+        <!-- items are in HTML for simplicity, filtered by JS -->
+        <div class="col-md-6 col-lg-4 news-item" data-cat="pasakumi">
+          <div class="news-card h-100">
+            <div class="news-meta">Pasākumi • 10.03.2026</div>
+            <h3 class="h5 fw-semibold">Pavasara radošā diena</h3>
+            <p class="text-muted">Kopā veidosim dekorus un zīmēsim pavasara tēmas.</p>
+            <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#newsModal"
+              data-title="Pavasara radošā diena"
+              data-date="10.03.2026"
+              data-text="Plāns: radošās darbnīcas, neliels koncerts un kopīga tējas pauze. Šis ir demo teksts.">
+              Lasīt vairāk
+            </button>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 news-item" data-cat="vecaki">
+          <div class="news-card h-100">
+            <div class="news-meta">Vecākiem • 18.02.2026</div>
+            <h3 class="h5 fw-semibold">Atvērto durvju diena</h3>
+            <p class="text-muted">Piesakies vizītei un iepazīsti telpas un pedagogus.</p>
+            <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#newsModal"
+              data-title="Atvērto durvju diena"
+              data-date="18.02.2026"
+              data-text="Aicinām vecākus uz tikšanos: ekskursija, jautājumi un atbildes. Demo teksts, nomaināms.">
+              Lasīt vairāk
+            </button>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 news-item" data-cat="edinasana">
+          <div class="news-card h-100">
+            <div class="news-meta">Ēdināšana • 01.03.2026</div>
+            <h3 class="h5 fw-semibold">Jauna sezonas ēdienkarte</h3>
+            <p class="text-muted">Vairāk dārzeņu, zupas un augļi ikdienā.</p>
+            <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#newsModal"
+              data-title="Jauna sezonas ēdienkarte"
+              data-date="01.03.2026"
+              data-text="Pielāgojam ēdienkarti bērnu vajadzībām un alerģijām. Šis ir demo apraksts.">
+              Lasīt vairāk
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Admission -->
+  <section id="uznemsana" class="section">
+    <div class="container">
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-6">
+          <h2 class="fw-bold mb-2">Uzņemšana</h2>
+          <p class="text-muted mb-4">
+            Šeit vari ielikt reālos noteikumus, dokumentu sarakstu un cenu informāciju.
+          </p>
+
+          <div class="accordion" id="admissionAcc">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#a1">
+                  Kā pieteikt bērnu?
+                </button>
+              </h2>
+              <div id="a1" class="accordion-collapse collapse show" data-bs-parent="#admissionAcc">
+                <div class="accordion-body text-muted">
+                  1) Aizpildi pieteikumu <span class="fw-semibold">(demo forma)</span> •
+                  2) Vienojamies par vizīti • 3) Apstiprinām vietu un dokumentus.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a2">
+                  Nepieciešamie dokumenti
+                </button>
+              </h2>
+              <div id="a2" class="accordion-collapse collapse" data-bs-parent="#admissionAcc">
+                <div class="accordion-body text-muted">
+                  Personu apliecinošs dokuments, bērna dati, medicīniskā informācija (ja nepieciešams).
+                  (Demo — nomaini uz reālo sarakstu.)
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a3">
+                  Maksa un atlaides (demo)
+                </button>
+              </h2>
+              <div id="a3" class="accordion-collapse collapse" data-bs-parent="#admissionAcc">
+                <div class="accordion-body text-muted">
+                  Mēneša maksa: <span class="fw-semibold">no 290€</span> • Ēdināšana: <span class="fw-semibold">~3.50€ / dienā</span>.
+                  Atlaides brāļiem/māsām — pēc vienošanās.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 d-flex flex-wrap gap-2">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pieteikumsModal">
+              Aizpildīt pieteikumu
+            </button>
+            <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#cenasModal">
+              Apskatīt cenu tabulu
+            </button>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="callout-card p-4 p-lg-5">
+            <div class="d-flex align-items-start gap-3">
+              <div class="callout-icon"><i class="bi bi-chat-square-heart"></i></div>
+              <div>
+                <h3 class="h5 fw-semibold mb-1">Vēlies ātri uzdot jautājumu?</h3>
+                <p class="text-muted mb-3">Atstāj kontaktus, un mēs sazināsimies (demo).</p>
+
+                <form id="quickForm" class="row g-2">
+                  <div class="col-md-6">
+                    <input class="form-control" name="vards" placeholder="Vārds" required>
+                  </div>
+                  <div class="col-md-6">
+                    <input class="form-control" name="talrunis" placeholder="Tālrunis" required>
+                  </div>
+                  <div class="col-12">
+                    <input class="form-control" name="tema" placeholder="Tēma (piem., vietas, grafiks)">
+                  </div>
+                  <div class="col-12 d-grid">
+                    <button class="btn btn-dark" type="submit">
+                      Nosūtīt <i class="bi bi-send ms-1"></i>
+                    </button>
+                  </div>
+                  <div class="col-12">
+                    <div class="small text-muted" id="quickFormMsg"></div>
+                  </div>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="kontakti" class="section bg-soft">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-5">
+          <h2 class="fw-bold mb-2">Kontakti</h2>
+          <p class="text-muted mb-4">
+            Šeit ieliec reālo adresi, darba laikus un karti. Zemāk ir demo “karte”.
+          </p>
+
+          <div class="contact-card">
+            <div class="d-flex gap-3 align-items-start">
+              <i class="bi bi-geo-alt fs-4"></i>
+              <div>
+                <div class="fw-semibold">Adrese</div>
+                <div class="text-muted">Rīga, Brīvības iela 123</div>
+              </div>
+            </div>
+            <hr>
+            <div class="d-flex gap-3 align-items-start">
+              <i class="bi bi-clock fs-4"></i>
+              <div>
+                <div class="fw-semibold">Darba laiks</div>
+                <div class="text-muted">P–Pk: 08:00–18:30</div>
+              </div>
+            </div>
+            <hr>
+            <div class="d-flex gap-3 align-items-start">
+              <i class="bi bi-envelope fs-4"></i>
+              <div>
+                <div class="fw-semibold">E-pasts</div>
+                <div class="text-muted">info@saulesstars.lv</div>
+              </div>
+            </div>
+            <hr>
+            <div class="d-flex gap-3 align-items-start">
+              <i class="bi bi-telephone fs-4"></i>
+              <div>
+                <div class="fw-semibold">Tālrunis</div>
+                <div class="text-muted">+371 20 000 000</div>
+              </div>
+            </div>
+
+            <div class="d-grid mt-3">
+              <a class="btn btn-primary" href="mailto:info@saulesstars.lv">Rakstīt e-pastu</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="map-mock d-flex align-items-center justify-content-center">
+            <div class="text-center">
+              <div class="fw-semibold">Demo karte</div>
+              <div class="text-muted small">Šeit vari ielikt Google Maps iframe.</div>
+              <button class="btn btn-sm btn-outline-secondary mt-3" id="copyMapCode">
+                Nokopēt iframe piemēru
+              </button>
+              <div class="small text-muted mt-2" id="mapCopyMsg"></div>
+            </div>
+          </div>
+
+          <div class="mt-3 small text-muted">
+            <i class="bi bi-lock me-1"></i>Privātums: šī forma ir demo un neko reāli nesūta (pagaidām).
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-4 border-top">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <div class="text-muted small">
+        © <span id="year"></span> Bērnudārzs “Saules Stars” • Demo mājaslapa
+      </div>
+      <div class="d-flex gap-2">
+        <a class="btn btn-sm btn-outline-secondary" href="#sakums">Uz augšu</a>
+        <a class="btn btn-sm btn-outline-secondary" href="#" id="privacyLink">Privātuma politika (demo)</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modals -->
+  <!-- Program modal -->
+  <div class="modal fade" id="progModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="progTitle">Programma</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Aizvērt"></button>
+        </div>
+        <div class="modal-body">
+          <div class="badge text-bg-light border mb-2" id="progAge">3–6 gadi</div>
+          <p class="text-muted mb-0" id="progDesc"></p>
+        </div>
+        <div class="modal-footer">
+          <a class="btn btn-outline-secondary" href="#uznemsana" data-bs-dismiss="modal">Uzņemšana</a>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pieteikumsModal" data-bs-dismiss="modal">
+            Pieteikt vizīti
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- News modal -->
+  <div class="modal fade" id="newsModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="newsTitle">Jaunums</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Aizvērt"></button>
+        </div>
+        <div class="modal-body">
+          <div class="small text-muted mb-2" id="newsDate"></div>
+          <p class="text-muted mb-0" id="newsText"></p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline-secondary" data-bs-dismiss="modal">Aizvērt</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Application modal -->
+  <div class="modal fade" id="pieteikumsModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Pieteikums vizītei (demo)</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Aizvērt"></button>
+        </div>
+        <div class="modal-body">
+          <form id="applyForm" class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label">Vecāka vārds</label>
+              <input class="form-control" name="parent" placeholder="Piem., Anna" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Tālrunis</label>
+              <input class="form-control" name="phone" placeholder="+371 ..." required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">E-pasts</label>
+              <input class="form-control" type="email" name="email" placeholder="anna@example.com" required>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label">Bērna vecums</label>
+              <select class="form-select" name="age">
+                <option>3</option><option>4</option><option>5</option><option>6</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label">Vēlamais laiks</label>
+              <select class="form-select" name="time">
+                <option>Rīts</option>
+                <option>Diena</option>
+                <option>Pēcpusdiena</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label class="form-label">Ziņa</label>
+              <textarea class="form-control" name="message" rows="3"
+                placeholder="Piem., vēlamies apskatīt grupu un uzzināt par uzņemšanu."></textarea>
+            </div>
+
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="consent" required>
+                <label class="form-check-label" for="consent">
+                  Piekrītu, ka mani dati tiek izmantoti saziņai (demo).
+                </label>
+              </div>
+            </div>
+
+            <div class="col-12 d-flex flex-wrap gap-2 justify-content-end">
+              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Atcelt</button>
+              <button type="submit" class="btn btn-primary">
+                Nosūtīt pieteikumu <i class="bi bi-send ms-1"></i>
+              </button>
+            </div>
+
+            <div class="col-12">
+              <div class="small" id="applyMsg"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Virtual tour modal -->
+  <div class="modal fade" id="virtualaTureModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Virtuālā tūre (demo)</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Aizvērt"></button>
+        </div>
+        <div class="modal-body text-muted">
+          Šeit vari ielikt video (YouTube) vai galeriju. Pagaidām — vienkāršs demo logs.
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline-secondary" data-bs-dismiss="modal">Aizvērt</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Team modal -->
+  <div class="modal fade" id="komandaModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Komanda (demo)</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Aizvērt"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row g-3">
+            <div class="col-md-4">
+              <div class="team-card">
+                <div class="avatar">A</div>
+                <div class="fw-semibold mt-2">Anna Ozola</div>
+                <div class="text-muted small">Vadītāja</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="team-card">
+                <div class="avatar">I</div>
+                <div class="fw-semibold mt-2">Ilze Kalniņa</div>
+                <div class="text-muted small">Pirmsskolas skolotāja</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="team-card">
+                <div class="avatar">M</div>
+                <div class="fw-semibold mt-2">Mārtiņš Liepa</div>
+                <div class="text-muted small">Sporta pedagogs</div>
+              </div>
+            </div>
+          </div>
+          <div class="small text-muted mt-3">
+            (Šeit vari pievienot īstas fotogrāfijas un aprakstus.)
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline-secondary" data-bs-dismiss="modal">Aizvērt</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pricing modal -->
+  <div class="modal fade" id="cenasModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Cenas (demo)</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Aizvērt"></button>
+        </div>
+        <div class="modal-body">
+          <div class="table-responsive">
+            <table class="table align-middle">
+              <thead>
+              <tr>
+                <th>Pakalpojums</th>
+                <th>Apraksts</th>
+                <th class="text-end">Cena</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td class="fw-semibold">Mēneša maksa</td>
+                <td class="text-muted">Pamata programma (3–6 gadi)</td>
+                <td class="text-end">no 290€</td>
+              </tr>
+              <tr>
+                <td class="fw-semibold">Ēdināšana</td>
+                <td class="text-muted">Brokastis + pusdienas + launags</td>
+                <td class="text-end">~3.50€/dienā</td>
+              </tr>
+              <tr>
+                <td class="fw-semibold">Papildnodarbības</td>
+                <td class="text-muted">Radošums / sports (pēc izvēles)</td>
+                <td class="text-end">no 20€</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="small text-muted">* Šīs ir demo cenas — nomaini uz reālām.</div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline-secondary" data-bs-dismiss="modal">Aizvērt</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JS -->
+  <script src="script.js"></script>
 </body>
 </html>
