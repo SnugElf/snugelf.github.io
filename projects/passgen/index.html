@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Генератор паролей</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b1020;
+      --card: rgba(16, 24, 48, 0.92);
+      --card-2: rgba(20, 30, 58, 0.88);
+      --line: rgba(255,255,255,0.08);
+      --text: #eef2ff;
+      --muted: #a7b0c8;
+      --accent: #3b82f6;
+      --accent-2: #1d4ed8;
+      --success: #22c55e;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top left, rgba(59,130,246,.18), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(99,102,241,.12), transparent 26%),
+        linear-gradient(135deg, #070b16 0%, #0b1020 45%, #10182f 100%);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .generator-wrap {
+      width: 100%;
+      max-width: 760px;
+    }
+
+    .generator-card {
+      background: linear-gradient(180deg, rgba(20,30,58,.95), rgba(12,18,36,.95));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: 0 24px 60px rgba(0,0,0,.45);
+      overflow: hidden;
+    }
+
+    .hero {
+      padding: 34px 34px 20px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(59,130,246,.09), rgba(255,255,255,0));
+    }
+
+    .badge-own {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(59,130,246,.12);
+      color: #93c5fd;
+      border: 1px solid rgba(59,130,246,.2);
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      line-height: 1.05;
+      font-weight: 800;
+      margin: 0 0 12px;
+      letter-spacing: -0.03em;
+    }
+
+    .hero h1 span {
+      color: #60a5fa;
+    }
+
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 560px;
+    }
+
+    .content {
+      padding: 28px 34px 34px;
+    }
+
+    .password-box {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 18px;
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: .2s ease;
+    }
+
+    .password-box:hover {
+      border-color: rgba(96,165,250,.5);
+      box-shadow: 0 0 0 4px rgba(59,130,246,.08);
+    }
+
+    #passwordOutput {
+      flex: 1;
+      background: transparent;
+      border: 0;
+      color: #fff;
+      font-size: 1.05rem;
+      font-weight: 600;
+      outline: none;
+      min-width: 0;
+    }
+
+    #passwordOutput::selection {
+      background: rgba(96,165,250,.35);
+    }
+
+    .copy-btn {
+      border-radius: 14px;
+      white-space: nowrap;
+    }
+
+    .strength-card,
+    .settings-card {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 22px;
+      padding: 22px;
+      height: 100%;
+    }
+
+    .section-title {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .strength-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #f59e0b;
+      box-shadow: 0 0 14px currentColor;
+    }
+
+    .strength-bar {
+      height: 12px;
+      background: rgba(255,255,255,.06);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 14px;
+    }
+
+    .strength-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: inherit;
+      transition: width .25s ease, background .25s ease;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: .95rem;
+      margin-top: 10px;
+    }
+
+    .range-value {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .form-range::-webkit-slider-thumb {
+      background: var(--accent);
+    }
+
+    .form-range::-moz-range-thumb {
+      background: var(--accent);
+      border: 0;
+    }
+
+    .form-range::-webkit-slider-runnable-track {
+      background: linear-gradient(90deg, #2563eb, #60a5fa);
+      height: 8px;
+      border-radius: 999px;
+    }
+
+    .form-range::-moz-range-track {
+      background: linear-gradient(90deg, #2563eb, #60a5fa);
+      height: 8px;
+      border-radius: 999px;
+    }
+
+    .option-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .option-card {
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.02);
+      border-radius: 16px;
+      padding: 12px 14px;
+      transition: .2s ease;
+    }
+
+    .option-card:hover {
+      border-color: rgba(96,165,250,.35);
+      background: rgba(96,165,250,.05);
+    }
+
+    .form-check-input {
+      background-color: #0f172a;
+      border-color: rgba(255,255,255,.24);
+      width: 2.7em;
+      height: 1.45em;
+    }
+
+    .form-check-input:checked {
+      background-color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .label-strong {
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .label-muted {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn-main {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      border: 0;
+      color: #fff;
+      font-weight: 700;
+      border-radius: 16px;
+      padding: 14px 22px;
+      box-shadow: 0 12px 30px rgba(29,78,216,.28);
+    }
+
+    .btn-main:hover {
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    .btn-soft {
+      border-radius: 16px;
+      padding: 14px 18px;
+      border: 1px solid rgba(255,255,255,.12);
+      color: #e5edff;
+      background: rgba(255,255,255,.03);
+    }
+
+    .btn-soft:hover {
+      border-color: rgba(96,165,250,.35);
+      color: #fff;
+      background: rgba(96,165,250,.06);
+    }
+
+    .footer-note {
+      color: var(--muted);
+      font-size: .9rem;
+      margin-top: 16px;
+    }
+
+    @media (max-width: 576px) {
+      .hero,
+      .content {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .password-box {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .copy-btn {
+        width: 100%;
+      }
+
+      .option-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .actions > * {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="generator-wrap">
+    <div class="generator-card">
+      <div class="hero">
+        <div class="badge-own">🔐 Твой личный генератор паролей</div>
+        <h1><span>Strong</span> password generator</h1>
+        <p>Быстрый тёмный генератор для личного сайта: длина, символы, копирование в один клик и оценка надёжности.</p>
+      </div>
+
+      <div class="content">
+        <div class="password-box mb-4">
+          <input id="passwordOutput" type="text" value="" readonly aria-label="Сгенерированный пароль">
+          <button id="copyBtn" class="btn btn-soft copy-btn">📋 Скопировать</button>
+        </div>
+
+        <div class="row g-4 mb-4">
+          <div class="col-lg-5">
+            <div class="strength-card">
+              <div class="section-title">Надёжность</div>
+              <div class="strength-label">
+                <span class="dot" id="strengthDot"></span>
+                <span id="strengthText">Средний</span>
+              </div>
+              <div class="strength-bar">
+                <div class="strength-fill" id="strengthFill"></div>
+              </div>
+              <div class="meta" id="strengthMeta">Подбери длину и включи больше наборов символов.</div>
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <div class="settings-card">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div class="section-title mb-0">Длина пароля</div>
+                <div class="range-value"><span id="lengthValue">20</span></div>
+              </div>
+              <input type="range" class="form-range" min="6" max="64" value="20" id="lengthRange">
+              <div class="meta">Рекомендуется 16+ символов для обычного использования и 20+ для важных аккаунтов.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-card mb-4">
+          <div class="section-title">Наборы символов</div>
+          <div class="option-grid">
+            <label class="option-card d-flex justify-content-between align-items-center">
+              <div>
+                <div class="label-strong">abc</div>
+                <div class="label-muted">Строчные буквы</div>
+              </div>
+              <div class="form-check form-switch m-0">
+                <input class="form-check-input option-check" type="checkbox" id="lowercase" checked>
+              </div>
+            </label>
+
+            <label class="option-card d-flex justify-content-between align-items-center">
+              <div>
+                <div class="label-strong">ABC</div>
+                <div class="label-muted">Заглавные буквы</div>
+              </div>
+              <div class="form-check form-switch m-0">
+                <input class="form-check-input option-check" type="checkbox" id="uppercase" checked>
+              </div>
+            </label>
+
+            <label class="option-card d-flex justify-content-between align-items-center">
+              <div>
+                <div class="label-strong">123</div>
+                <div class="label-muted">Цифры</div>
+              </div>
+              <div class="form-check form-switch m-0">
+                <input class="form-check-input option-check" type="checkbox" id="numbers" checked>
+              </div>
+            </label>
+
+            <label class="option-card d-flex justify-content-between align-items-center">
+              <div>
+                <div class="label-strong">#&$</div>
+                <div class="label-muted">Спецсимволы</div>
+              </div>
+              <div class="form-check form-switch m-0">
+                <input class="form-check-input option-check" type="checkbox" id="symbols" checked>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="generateBtn" class="btn btn-main">⚡ Сгенерировать новый</button>
+          <button id="clearBtn" class="btn btn-soft">Сбросить настройки</button>
+        </div>
+
+        <div class="footer-note">Работает полностью на клиенте в браузере. Ничего никуда не отправляется.</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const passwordOutput = document.getElementById('passwordOutput');
+    const copyBtn = document.getElementById('copyBtn');
+    const generateBtn = document.getElementById('generateBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const lengthRange = document.getElementById('lengthRange');
+    const lengthValue = document.getElementById('lengthValue');
+    const lowercase = document.getElementById('lowercase');
+    const uppercase = document.getElementById('uppercase');
+    const numbers = document.getElementById('numbers');
+    const symbols = document.getElementById('symbols');
+    const checks = document.querySelectorAll('.option-check');
+    const strengthText = document.getElementById('strengthText');
+    const strengthFill = document.getElementById('strengthFill');
+    const strengthDot = document.getElementById('strengthDot');
+    const strengthMeta = document.getElementById('strengthMeta');
+
+    const charset = {
+      lowercase: 'abcdefghijklmnopqrstuvwxyz',
+      uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+      numbers: '0123456789',
+      symbols: '!@#$%^&*()_+-=[]{}|;:,.<>?/~'
+    };
+
+    function randomInt(max) {
+      const array = new Uint32Array(1);
+      crypto.getRandomValues(array);
+      return array[0] % max;
+    }
+
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = randomInt(i + 1);
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    function getActiveSets() {
+      const active = [];
+      if (lowercase.checked) active.push(charset.lowercase);
+      if (uppercase.checked) active.push(charset.uppercase);
+      if (numbers.checked) active.push(charset.numbers);
+      if (symbols.checked) active.push(charset.symbols);
+      return active;
+    }
+
+    function generatePassword() {
+      const length = Number(lengthRange.value);
+      const activeSets = getActiveSets();
+
+      if (!activeSets.length) {
+        passwordOutput.value = 'Выбери хотя бы один набор символов';
+        updateStrength();
+        return;
+      }
+
+      const allChars = activeSets.join('');
+      const passwordChars = [];
+
+      activeSets.forEach(set => {
+        passwordChars.push(set[randomInt(set.length)]);
+      });
+
+      while (passwordChars.length < length) {
+        passwordChars.push(allChars[randomInt(allChars.length)]);
+      }
+
+      const password = shuffle(passwordChars).join('').slice(0, length);
+      passwordOutput.value = password;
+      updateStrength(password);
+    }
+
+    function updateStrength(password = passwordOutput.value) {
+      const activeCount = getActiveSets().length;
+      const length = Number(lengthRange.value);
+
+      if (!password || password === 'Выбери хотя бы один набор символов' || activeCount === 0) {
+        strengthText.textContent = 'Нет данных';
+        strengthFill.style.width = '6%';
+        strengthFill.style.background = '#64748b';
+        strengthDot.style.background = '#64748b';
+        strengthDot.style.color = '#64748b';
+        strengthMeta.textContent = 'Включи хотя бы один набор символов.';
+        return;
+      }
+
+      let score = 0;
+      if (length >= 10) score += 20;
+      if (length >= 14) score += 20;
+      if (length >= 20) score += 20;
+      if (length >= 28) score += 10;
+      score += activeCount * 12;
+      if (/[a-z]/.test(password) && /[A-Z]/.test(password)) score += 8;
+      if (/\d/.test(password)) score += 5;
+      if (/[^A-Za-z0-9]/.test(password)) score += 5;
+      score = Math.min(score, 100);
+
+      let label = 'Слабый';
+      let color = '#ef4444';
+      let meta = 'Добавь длину и больше разных символов.';
+
+      if (score >= 80) {
+        label = 'Очень сильный';
+        color = '#22c55e';
+        meta = 'Отлично для личного использования и важных аккаунтов.';
+      } else if (score >= 60) {
+        label = 'Сильный';
+        color = '#84cc16';
+        meta = 'Хороший пароль, уже выглядит надёжно.';
+      } else if (score >= 40) {
+        label = 'Средний';
+        color = '#f59e0b';
+        meta = 'Нормально, но можно усилить длиной или символами.';
+      }
+
+      strengthText.textContent = label;
+      strengthFill.style.width = `${score}%`;
+      strengthFill.style.background = color;
+      strengthDot.style.background = color;
+      strengthDot.style.color = color;
+      strengthMeta.textContent = meta;
+    }
+
+    async function copyPassword() {
+      const value = passwordOutput.value.trim();
+      if (!value || value === 'Выбери хотя бы один набор символов') return;
+
+      try {
+        await navigator.clipboard.writeText(value);
+        const oldText = copyBtn.textContent;
+        copyBtn.textContent = '✅ Скопировано';
+        setTimeout(() => copyBtn.textContent = oldText, 1400);
+      } catch {
+        passwordOutput.select();
+        document.execCommand('copy');
+      }
+    }
+
+    function resetSettings() {
+      lengthRange.value = 20;
+      lengthValue.textContent = 20;
+      lowercase.checked = true;
+      uppercase.checked = true;
+      numbers.checked = true;
+      symbols.checked = true;
+      generatePassword();
+    }
+
+    lengthRange.addEventListener('input', () => {
+      lengthValue.textContent = lengthRange.value;
+      generatePassword();
+    });
+
+    checks.forEach(check => {
+      check.addEventListener('change', () => {
+        if (![...checks].some(item => item.checked)) {
+          check.checked = true;
+        }
+        generatePassword();
+      });
+    });
+
+    generateBtn.addEventListener('click', generatePassword);
+    copyBtn.addEventListener('click', copyPassword);
+    clearBtn.addEventListener('click', resetSettings);
+
+    generatePassword();
+  </script>
+</body>
+</html>
